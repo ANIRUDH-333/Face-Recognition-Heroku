@@ -35,7 +35,7 @@ class VideoProcessor:
                 img_encode = face_recognition.face_encodings(img)[0] 
                 print(img_encode)
                 
-                known_image = face_recognition.load_image_file('test.png')
+                known_image = face_recognition.load_image_file('test.jpeg')
                 encoding = face_recognition.face_encodings(known_image)[0]
                 result = face_recognition.compare_faces([encoding],img_encode,0.6)
                 if result[0] == True:

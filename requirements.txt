@@ -1,0 +1,6 @@
+opencv-python-headless
+streamlit
+streamlit_webrtc
+face_recognition
+numpy
+Pillow

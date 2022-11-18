@@ -8,6 +8,7 @@ import numpy as np
 
 cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 st.title(' Face Recognition System')
+labels_placeholder = st.empty()
 
 st.subheader("Upload Your Photo")
 
@@ -47,7 +48,7 @@ class VideoProcessor:
         return av.VideoFrame.from_ndarray(frm, format="bgr24")
 
 
-webrtc_streamer(key="key", video_processor_factory=VideoProcessor,
+webrtc_ctx = webrtc_streamer(key="key", video_processor_factory=VideoProcessor,
                 rtc_configuration=RTCConfiguration(
                     {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
 )

@@ -8,7 +8,7 @@ import numpy as np
 
 cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 st.title(' Face Recognition System')
-labels_placeholder = st.empty()
+FRAME_WINDOW = st.image([]) #
 
 st.subheader("Upload Your Photo")
 
@@ -28,6 +28,7 @@ class VideoProcessor:
         faces = cascade.detectMultiScale(frm, 1.1, 3)
         for x,y,w,h in faces:
             img = cv2.cvtColor(frm[y:y+h,x:x+w],cv2.COLOR_BGR2RGB)
+            FRAME_WINDOW.image(img) #
             cv2.rectangle(frm, (x,y), (x+w, y+h), (0,255,0), 3)
             if len(face_recognition.face_encodings(img)) == 0:
                 continue
